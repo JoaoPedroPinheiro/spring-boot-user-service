@@ -17,8 +17,20 @@ public class UserService {
     }
 
     public User getUserByID(Long id){
-        return repository.findById(id).orElseThrow(()-> new UserNotFound());
+        return repository.findById(id).orElseThrow(()-> new UserNotFound(id));
     }
 
+    public User createUser(User user) {
+        //TODO: If user already exists, throw error. Otherwise save it to DB and return
+        return null;
+    }
 
+    public User updateUser(User user){
+        //TODO: If user exists update. Otherwise throw error and return
+        return null;
+    }
+
+    public User deleteUser(Long id){
+        repository.deleteById(id);
+    }
 }
