@@ -1,4 +1,4 @@
-package io.joaopinheiro.userservice;
+package io.joaopinheiro.userservice.web;
 
 
 import io.joaopinheiro.userservice.service.UserService;
