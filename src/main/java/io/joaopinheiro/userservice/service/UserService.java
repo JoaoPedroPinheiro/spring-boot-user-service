@@ -3,6 +3,7 @@ package io.joaopinheiro.userservice.service;
 import io.joaopinheiro.userservice.repository.UserRepository;
 import io.joaopinheiro.userservice.service.errors.UserAlreadyExists;
 import io.joaopinheiro.userservice.service.errors.UserNotFound;
+import io.joaopinheiro.userservice.service.errors.UserUpdateError;
 import io.joaopinheiro.userservice.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -29,7 +30,6 @@ public class UserService {
         }
 
         User result = repository.save(user);
-
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(result.getId()).toUri();
@@ -37,12 +37,16 @@ public class UserService {
         return location;
     }
 
-    public User updateUser(User user){
-        //TODO: If user exists update. Otherwise throw error and return
-        return null;
+    public User updateUser(User user, Long id){
+        repository.findById(id).orElseThrow(()-> new UserNotFound(id));
+        if(user.getId() != null && !user.getId().equals(id))
+            throw new UserUpdateError();
+
+        return repository.save(user);
     }
 
     public void deleteUser(Long id){
+        repository.findById(id).orElseThrow(()-> new UserNotFound(id));
         repository.deleteById(id);
     }
 }

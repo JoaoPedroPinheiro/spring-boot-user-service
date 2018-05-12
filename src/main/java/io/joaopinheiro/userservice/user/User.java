@@ -1,4 +1,5 @@
 package io.joaopinheiro.userservice.user;
+
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
@@ -26,4 +27,11 @@ public class User {
         return email;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

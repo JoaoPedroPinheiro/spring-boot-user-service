@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -15,9 +17,8 @@ public class UserController {
     UserService userService;
 
     @GetMapping(path = "users", produces = "application/json")
-    public User getUser(){
-        //TODO
-        return null;
+    public List<User> getUsers(){
+        return userService.getAll();
     }
 
     @PostMapping(path= "users", produces = "application/json", consumes = "application/json")
@@ -27,24 +28,18 @@ public class UserController {
 
     @GetMapping(path="users/{id}", produces = "application/json")
     public User getUser(@PathVariable("id") Long id){
-        //TODO
-        return null;
+        return userService.getUserByID(id);
     }
 
     @PutMapping(path= "users/{id}", produces = "application/json")
     public User updateUser(@RequestBody User user, @PathVariable("id") Long id){
-        //TODO
-        return null;
+        return userService.updateUser(user, id);
     }
 
     @DeleteMapping(path ="users/{id}", produces = "application/json")
-    public User deleteUser(@RequestBody User user, @PathVariable("id") Long id){
-        //TODO
-        return null;
-    }
-
-    private void validateUser(){
-
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+        return ResponseEntity.ok().build();
     }
 
 }
