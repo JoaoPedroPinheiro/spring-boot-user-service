@@ -13,23 +13,27 @@ import java.util.List;
 
 public class UserService {
 
+    UserRepository userRepository;
+
     @Autowired
-    UserRepository repository;
+    public UserService(UserRepository repo){
+        this.userRepository = repo;
+    }
 
     public List<User> getAll(){
-        return repository.findAll();
+        return userRepository.findAll();
     }
 
     public User getUserByID(Long id){
-        return repository.findById(id).orElseThrow(()-> new UserNotFound(id));
+        return userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
     }
 
     public URI createUser(User user) {
-        if(user.getId() != null && repository.findById(user.getId()).isPresent()) {
+        if(user.getId() != null && userRepository.findById(user.getId()).isPresent()) {
             throw new UserAlreadyExists(user.getId());
         }
 
-        User result = repository.save(user);
+        User result = userRepository.save(user);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(result.getId()).toUri();
@@ -38,15 +42,15 @@ public class UserService {
     }
 
     public User updateUser(User user, Long id){
-        repository.findById(id).orElseThrow(()-> new UserNotFound(id));
+        userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
         if(user.getId() != null && !user.getId().equals(id))
             throw new UserUpdateError();
 
-        return repository.save(user);
+        return userRepository.save(user);
     }
 
     public void deleteUser(Long id){
-        repository.findById(id).orElseThrow(()-> new UserNotFound(id));
-        repository.deleteById(id);
+        userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
+        userRepository.deleteById(id);
     }
 }

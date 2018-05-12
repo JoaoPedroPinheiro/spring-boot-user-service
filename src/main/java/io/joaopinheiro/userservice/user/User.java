@@ -39,4 +39,18 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null) {
+            return false;
+        } else if(obj instanceof User) {
+            User user = (User) obj;
+            return this.email.equals(user.email) &&
+                    this.username.equals(user.username) &&
+                    this.id.equals(user.id);
+        }
+
+        return false;
+    }
 }
