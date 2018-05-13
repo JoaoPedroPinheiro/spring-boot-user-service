@@ -6,9 +6,7 @@ import io.joaopinheiro.userservice.service.errors.UserNotFound;
 import io.joaopinheiro.userservice.service.errors.UserUpdateError;
 import io.joaopinheiro.userservice.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 public class UserService {
