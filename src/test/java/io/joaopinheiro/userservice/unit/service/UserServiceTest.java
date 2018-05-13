@@ -105,7 +105,7 @@ public class UserServiceTest {
 
         assertTrue(service.validateEmail("user@mail.com"));
         assertTrue(service.validateEmail("user@mail.io"));
-        assertTrue(service.validateEmail("user.user@com"));
+        assertTrue(service.validateEmail("user.user@mail.com"));
         assertTrue(service.validateEmail("user@mail.net"));
     }
 
