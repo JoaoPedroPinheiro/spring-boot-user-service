@@ -4,14 +4,20 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue
+    @NotNull
     private Long id;
+
+    @NotNull
     private String username;
+
+    @NotNull
     private String email;
 
     public User(Long id, String username, String email){

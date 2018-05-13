@@ -28,22 +28,18 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
     }
 
-    public URI createUser(User user) {
+    public User createUser(User user) {
         if(user.getId() != null && userRepository.findById(user.getId()).isPresent()) {
             throw new UserAlreadyExists(user.getId());
         }
 
         User result = userRepository.save(user);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(result.getId()).toUri();
-
-        return location;
+        return result;
     }
 
     public User updateUser(User user, Long id){
         userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
-        if(user.getId() != null && !user.getId().equals(id))
+        if(!user.getId().equals(id))
             throw new UserUpdateError();
 
         return userRepository.save(user);

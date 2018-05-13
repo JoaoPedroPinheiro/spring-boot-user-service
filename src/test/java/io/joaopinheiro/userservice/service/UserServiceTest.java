@@ -1,7 +1,9 @@
 package io.joaopinheiro.userservice.service;
 
 import io.joaopinheiro.userservice.repository.UserRepository;
+import io.joaopinheiro.userservice.service.errors.UserAlreadyExists;
 import io.joaopinheiro.userservice.service.errors.UserNotFound;
+import io.joaopinheiro.userservice.service.errors.UserUpdateError;
 import io.joaopinheiro.userservice.user.User;
 import io.joaopinheiro.userservice.user.UserBuilder;
 import org.junit.Before;
@@ -39,16 +41,54 @@ public class UserServiceTest {
         service.getUserByID(Long.MAX_VALUE);
     }
 
-    @Test
-    public void createUser() {
-
+    @Test (expected = UserAlreadyExists.class)
+    public void createUserAlreadyExists() {
+        User user = new UserBuilder().build();
+        given(userRepository.findById(user.getId())).willReturn(Optional.of(user));
+        service.createUser(user);
     }
 
     @Test
-    public void updateUser() {
+    public void createUser(){
+        User user = new UserBuilder().build();
+        given(userRepository.findById(user.getId())).willReturn(Optional.empty());
+        given(userRepository.save(user)).willReturn(user);
+
+        assertEquals(user, service.createUser(user));
+    }
+
+    @Test (expected = UserNotFound.class)
+    public void updateUserNotFound() {
+        User user = new UserBuilder().build();
+        given(userRepository.findById(user.getId())).willReturn((Optional.empty()));
+        service.updateUser(user, user.getId());
+    }
+
+    @Test (expected = UserUpdateError.class)
+    public void updateUserIdUpdate(){
+        User user = new UserBuilder().build();
+        given(userRepository.findById(Long.MAX_VALUE)).willReturn(Optional.of(user));
+        service.updateUser(user, Long.MAX_VALUE);
     }
 
     @Test
-    public void deleteUser() {
+    public void updateUser(){
+        User oldUser = new UserBuilder().build();
+        User newUser = new UserBuilder()
+                .withEmail("updated@email.com")
+                .withUsername("Updated Name").build();
+
+        given(userRepository.findById(oldUser.getId())).willReturn(Optional.of(oldUser));
+        given(userRepository.save(newUser)).willReturn(newUser);
+
+        assertEquals(newUser, service.updateUser(newUser, oldUser.getId()));
     }
+
+    @Test (expected = UserNotFound.class)
+    public void deleteUserNotFound() {
+        given(userRepository.findById(Long.MAX_VALUE)).willReturn(Optional.empty());
+        service.deleteUser(Long.MAX_VALUE);
+    }
+
+
 }
