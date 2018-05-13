@@ -37,7 +37,7 @@ public class UserService {
 
     public User updateUser(User user, Long id){
         userRepository.findById(id).orElseThrow(()-> new UserNotFound(id));
-        if(!user.getId().equals(id))
+        if(user.getId() != null && !user.getId().equals(id))
             throw new UserUpdateError();
 
         return userRepository.save(user);

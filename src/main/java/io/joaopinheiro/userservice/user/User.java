@@ -11,7 +11,6 @@ public class User {
 
     @Id
     @GeneratedValue
-    @NotNull
     private Long id;
 
     @NotNull

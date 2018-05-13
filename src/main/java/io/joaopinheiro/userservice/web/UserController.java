@@ -1,6 +1,5 @@
 package io.joaopinheiro.userservice.web;
 
-
 import io.joaopinheiro.userservice.service.UserService;
 import io.joaopinheiro.userservice.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
