@@ -1,11 +1,12 @@
-package io.joaopinheiro.userservice.service;
+package io.joaopinheiro.userservice.unit.service;
 
 import io.joaopinheiro.userservice.repository.UserRepository;
+import io.joaopinheiro.userservice.service.UserService;
 import io.joaopinheiro.userservice.service.errors.UserAlreadyExists;
 import io.joaopinheiro.userservice.service.errors.UserNotFound;
 import io.joaopinheiro.userservice.service.errors.UserUpdateError;
 import io.joaopinheiro.userservice.user.User;
-import io.joaopinheiro.userservice.user.UserBuilder;
+import io.joaopinheiro.userservice.UserBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
