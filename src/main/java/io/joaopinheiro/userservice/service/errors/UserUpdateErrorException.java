@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-public class UserUpdateError extends RuntimeException {
+public class UserUpdateErrorException extends RuntimeException {
 
-    public UserUpdateError(){
+    public UserUpdateErrorException(){
         super("The User ID cannot be updated");
     }
 }
