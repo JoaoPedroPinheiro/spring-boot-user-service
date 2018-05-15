@@ -18,6 +18,8 @@ public class User {
     @NotNull
     private String email;
 
+    public User(){};
+
     public User(Long id, String username, String email){
         this.id = id;
         this.username = username;

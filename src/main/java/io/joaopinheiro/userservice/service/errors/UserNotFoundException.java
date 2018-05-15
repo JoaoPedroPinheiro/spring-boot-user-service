@@ -1,4 +1,4 @@
-package io.joaopinheiro.userservice.errors.exceptions;
+package io.joaopinheiro.userservice.service.errors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
