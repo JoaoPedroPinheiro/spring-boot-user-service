@@ -1,7 +1,7 @@
 package io.joaopinheiro.userservice.web;
 
 import io.joaopinheiro.userservice.service.UserService;
-import io.joaopinheiro.userservice.user.User;
+import io.joaopinheiro.userservice.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/")
 public class UserController {
 
-    @Autowired
     UserService userService;
+
+    @Autowired
+    public UserController(UserService service){
+        this.userService = service;
+    }
 
     @GetMapping(path = "users", produces = "application/json")
     public List<User> getUsers(){

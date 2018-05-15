@@ -1,4 +1,4 @@
-package io.joaopinheiro.userservice.unit.service;
+package io.joaopinheiro.userservice.unit;
 
 import io.joaopinheiro.userservice.util.SuggestionBuilder;
 import org.junit.Test;

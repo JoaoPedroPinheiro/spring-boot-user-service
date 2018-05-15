@@ -1,7 +1,5 @@
 package io.joaopinheiro.userservice;
 
-import io.joaopinheiro.userservice.user.User;
-
 /**
  * Utility class that generates User objects with reasonable defaults. Used for testing
  *

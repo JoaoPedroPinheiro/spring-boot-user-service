@@ -1,4 +1,4 @@
-package io.joaopinheiro.userservice.user;
+package io.joaopinheiro.userservice;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

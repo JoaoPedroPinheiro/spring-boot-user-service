@@ -5,7 +5,7 @@ import io.joaopinheiro.userservice.service.errors.UserAlreadyExistsException;
 import io.joaopinheiro.userservice.service.errors.UserMalformedException;
 import io.joaopinheiro.userservice.service.errors.UserNotFoundException;
 import io.joaopinheiro.userservice.service.errors.UserUpdateErrorException;
-import io.joaopinheiro.userservice.user.User;
+import io.joaopinheiro.userservice.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
