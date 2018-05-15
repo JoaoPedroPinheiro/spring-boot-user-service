@@ -23,7 +23,7 @@ public class SuggestionBuilder {
 
     public static final String[] TOKENS  =  {"The", "beautiful", "girl", "from", "the", "farmers", "market", ".", "I", "like", "chewing", "gum", "." };
 
-    public static final String[] STOP_WORDS = {"is", "can", "the", "i"};
+    public static final String[] STOP_WORDS = {"is", "can", "the"};
 
     public static final Set<String> PUNCTUATION = new HashSet<>(Arrays.asList(".", ":", "?"));
 
@@ -36,7 +36,7 @@ public class SuggestionBuilder {
         while(tokens.hasNext()){
             String token = tokens.next().toLowerCase();
 
-            if(stopWords.contains(token) || PUNCTUATION.contains(token)){
+            if(stopWords.contains(token) || PUNCTUATION.contains(token) || token.trim().length()==1){
                 depth = 0;
                 continue;
             }

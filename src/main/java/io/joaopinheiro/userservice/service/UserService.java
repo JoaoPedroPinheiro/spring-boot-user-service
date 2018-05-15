@@ -1,10 +1,10 @@
 package io.joaopinheiro.userservice.service;
 
 import io.joaopinheiro.userservice.repository.UserRepository;
-import io.joaopinheiro.userservice.service.errors.UserAlreadyExistsException;
-import io.joaopinheiro.userservice.service.errors.UserMalformedException;
-import io.joaopinheiro.userservice.service.errors.UserNotFoundException;
-import io.joaopinheiro.userservice.service.errors.UserUpdateErrorException;
+import io.joaopinheiro.userservice.errors.exceptions.UserAlreadyExistsException;
+import io.joaopinheiro.userservice.errors.exceptions.UserMalformedException;
+import io.joaopinheiro.userservice.errors.exceptions.UserNotFoundException;
+import io.joaopinheiro.userservice.errors.exceptions.UserUpdateErrorException;
 import io.joaopinheiro.userservice.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

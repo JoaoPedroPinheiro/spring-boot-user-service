@@ -2,9 +2,9 @@ package io.joaopinheiro.userservice.unit.service;
 
 import io.joaopinheiro.userservice.repository.UserRepository;
 import io.joaopinheiro.userservice.service.UserService;
-import io.joaopinheiro.userservice.service.errors.UserAlreadyExistsException;
-import io.joaopinheiro.userservice.service.errors.UserNotFoundException;
-import io.joaopinheiro.userservice.service.errors.UserUpdateErrorException;
+import io.joaopinheiro.userservice.errors.exceptions.UserAlreadyExistsException;
+import io.joaopinheiro.userservice.errors.exceptions.UserNotFoundException;
+import io.joaopinheiro.userservice.errors.exceptions.UserUpdateErrorException;
 import io.joaopinheiro.userservice.user.User;
 import io.joaopinheiro.userservice.UserBuilder;
 import org.junit.Before;
