@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Entity class to store/retrieve data from the DB
+ *
+ * @author Joao Pedro Pinheiro
+ */
+
 @Entity
 public class User {
 

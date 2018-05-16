@@ -10,6 +10,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+
+/**
+ * This class represents the public API of the Service.
+ *
+ * @author Joao Pedro Pinheiro
+ */
 @RestController
 @RequestMapping("/")
 public class UserController {

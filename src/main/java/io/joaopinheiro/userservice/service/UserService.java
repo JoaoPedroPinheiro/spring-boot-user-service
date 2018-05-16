@@ -13,6 +13,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+ * This class handles the requests that arrive from the controller, including validation.
+ *
+ * @author Joao Pedro Pinheiro
+ */
+
 @Service
 public class UserService {
 
