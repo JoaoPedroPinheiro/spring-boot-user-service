@@ -31,6 +31,6 @@ public class IntegrationTests{
         assertEquals(HttpStatus.CREATED, this.restTemplate.postForEntity(BASE_URL, user, User.class).getStatusCode());
         assertEquals(HttpStatus.OK, this.restTemplate.getForEntity(BASE_URL+user.getId(),User.class).getStatusCode());
 
-    }
+     }
 
 }
