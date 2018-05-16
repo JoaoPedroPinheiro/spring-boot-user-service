@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class IntegrationTests{
+public class UserControllerIT {
 
     @LocalServerPort
     private int port;
