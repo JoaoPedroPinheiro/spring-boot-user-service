@@ -1,4 +1,4 @@
-package io.joaopinheiro.userservice;
+package io.joaopinheiro.userservice.integration;
 
 import io.joaopinheiro.userservice.web.UserController;
 import org.junit.Test;
